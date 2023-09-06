@@ -1,3 +1,9 @@
+local status, packer = pcall(require, "packer")
+if (not status) then
+  print("Packer is not installed")
+  return
+end
+
 -- Automatically run: PackerCompile
 vim.api.nvim_create_autocmd("BufWritePost", {
   group = vim.api.nvim_create_augroup("PACKER", { clear = true }),
@@ -172,4 +178,7 @@ return require("packer").startup(function(use)
       })
     end,
   })
+  
+  -- Which Key
+  use ("folke/which-key.nvim")
 end)
