@@ -27,16 +27,18 @@ map("n", "<leader>q", "<CMD>q<CR>")
 map("i", "jk", "<ESC>")
 
 -- Windows
-map("n", "<leader>ñ", "<CMD>vsplit<CR>")
+map("n", "<leader>v", "<CMD>vsplit<CR>")
 map("n", "<leader>p", "<CMD>split<CR>")
 
 -- NeoTree
-map("n", "<leader>e", "<CMD>Neotree toggle<CR>")
-map("n", "<leader>o", "<CMD>Neotree focus<CR>")
+map("n", "<C-n>", "<CMD>Neotree toggle<CR>")
+map("n", "<leader>e", "<CMD>Neotree focus<CR>")
 
 -- Buffer
+map("n", "<leader>b", "<CMD>enew<CR>")
 map("n", "<TAB>", "<CMD>bnext<CR>")
 map("n", "<S-TAB>", "<CMD>bprevious<CR>")
+
 
 -- Terminal
 map("n", "<leader>th", "<CMD>ToggleTerm size=10 direction=horizontal<CR>")
@@ -57,3 +59,15 @@ map("n", "<C-Left>", "<C-w><")
 map("n", "<C-Right>", "<C-w>>")
 map("n", "<C-Up>", "<C-w>+")
 map("n", "<C-Down>", "<C-w>-")
+
+-- Open compiler
+map('n', '<F6>', "<cmd>CompilerOpen<cr>", { noremap = true, silent = true })
+
+-- Redo last selected option
+map('n', '<S-F6>', function()
+  vim.cmd("CompilerStop") -- (Optional, to dispose all tasks before redo)
+  vim.cmd("CompilerRedo")
+end, { noremap = true, silent = true })
+
+-- Toggle compiler results
+map('n', '<S-F7>', "<cmd>CompilerToggleResults<cr>", { noremap = true, silent = true })
