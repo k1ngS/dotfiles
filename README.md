@@ -35,5 +35,6 @@ git clone https://github.com/k1ngs/dotfiles.git
 
 3. Run the command in Neovim Editor:
 ```
-:PackerSync
+:Lazy
 ```
+and PRESS I TO INSTALL
